@@ -46,5 +46,32 @@ namespace EmployeePayrollProblem_RESTSharp
                 Console.WriteLine("Id:- " + emp.Id + "\t" + "Name:- " + emp.Name + "\t" + "Salary:- " + emp.Salary);
             }
         }
+        // UC2: Ability to add a new Employee to the EmployeePayroll JSON Server.
+              
+
+        [TestMethod]
+        public void OnCallingPostAPI_ReturnEmployeeObject()
+        {
+            //Arrange
+            ///Initialize the request for POST to add new employee
+            RestRequest request = new RestRequest("/Employees", Method.POST);
+            JsonObject jsonObj = new JsonObject();
+            jsonObj.Add("name", "Pallavi");
+            jsonObj.Add("salary", "150000");
+            jsonObj.Add("id", "9");
+            ///Added parameters to the request object such as the content-type and attaching the jsonObj with the request
+            request.AddParameter("application/json", jsonObj, ParameterType.RequestBody);
+
+            //Act
+            IRestResponse response = client.Execute(request);
+
+            //Assert
+            Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
+            Employee employee = JsonConvert.DeserializeObject<Employee>(response.Content);
+            Assert.AreEqual("Pallavi", employee.Name);
+            Assert.AreEqual("150000", employee.Salary);
+            Console.WriteLine(response.Content);
+        }
     }
 }
+
