@@ -100,9 +100,9 @@ namespace EmployeePayrollProblem_RESTSharp
 
                 //Assert
                 Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
-               // EmployeeModel employee = JsonConvert.DeserializeObject<EmployeeModel>(response.Content);
-                //Assert.AreEqual(emp.Name, employee.Name);
-               // Assert.AreEqual(emp.Salary, employee.Salary);
+                EmployeeModel employee = JsonConvert.DeserializeObject<EmployeeModel>(response.Content);
+               Assert.AreEqual(emp.Name, employee.Name);
+                Assert.AreEqual(emp.Salary, employee.Salary);
 
                 Console.WriteLine(response.Content);
             }
