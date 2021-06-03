@@ -24,8 +24,25 @@
       "id": "5",
       "Name": "DJ",
       "Salary": "10000"
+    },
+    {
+      "name": "Pallavi",
+      "salary": "150000",
+      "id": "9"
+    },
+    {
+      "Name": "Aditya",
+      "Salary": "9876541",
+      "id": "10"},
+    {
+      "Name": "Girimal",
+      "Salary": "6543210",
+      "id": "11"
+    },
+    {
+      "Name": "Parvathi",
+      "Salary": "123456",
+      "id": "12"
     }
-
-    
   ]
 }
